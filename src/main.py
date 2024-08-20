@@ -23,21 +23,26 @@ if __name__ == "__main__":
     nm_modelo = input('Digite o modelo: ')
     nm_marca = input('Digite a marca: ')
     nm_cor = input('Digite a cor: ')
+    tanque = float(input("Tanque: "))
+    consumo_medio = float(input("Consumo medio do carro: "))
 
-    carro1 = Carro(nm_modelo, nm_marca, nm_cor, 0 , motor = False)
+    carro1 = Carro(nm_modelo, nm_marca, nm_cor, tanque, consumo_medio, 0 , motor = False)
 
     print('Cadastre o segundo carro')
     nm_modelo = input('Digite o modelo: ')
     nm_marca = input('Digite a marca: ')
     nm_cor = input('Digite a cor: ')
+    tanque = float(input("Tanque: "))
+    consumo_medio = float(input("Consumo medio do carro: ")) #10 km por litros
 
-    carro2 = Carro(nm_modelo, nm_marca, nm_cor, 0 , motor = False)
+    carro2 = Carro(nm_modelo, nm_marca, nm_cor, tanque, consumo_medio, 0 , motor = False)
 
 
     '''
-    Controlando o carro até ele atingir 10000 Km
+    Controlando o carro até ele atingir 600 Km
     '''
-    while carro1.odometro < 600 and carro2.odometro < 600:
+    while carro1.odometro < 600 and carro2.odometro < 600 and \
+            (carro1.tanque > 0 or carro2.tanque > 0):
         try:
             op = 0
             while op not in (1,2):
