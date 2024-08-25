@@ -13,7 +13,7 @@ if __name__ == "__main__":
     '''
     Controlando o carro até ele atingir 10000 Km
     '''
-    while carro1.odometro < 10000:
+    while carro1.get_odometro() < 10000:
         try:
             print('1- Ligar motor')
             print('2- Desligar motor')
