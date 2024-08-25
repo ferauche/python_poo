@@ -59,7 +59,7 @@ if __name__ == "__main__":
     try:
         print("Carregando arquivo de eleitores ...")
 
-        with open('eleitores.pkl', 'rb') as arquivo:
+        with open(FILE_ELEITORES, 'rb') as arquivo:
             eleitores = pickle.load(arquivo)
     except FileNotFoundError as fnfe:
         print(fnfe)
