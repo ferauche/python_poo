@@ -25,20 +25,24 @@ if __name__ == "__main__":
     nm_modelo1 = input('Digite o modelo: ')
     nm_marca1 = input('Digite a marca: ')
     nm_cor1 = input('Digite a cor: ')
+    nm_litros1 = float(input('Tamanho do tanque: '))
+    nm_cm1= float(input('Consumo do tanque: '))
 
-    carro1 = Carro(nm_modelo1, nm_marca1, nm_cor1, 0, motor=False)
+    carro1 = Carro(nm_modelo1, nm_marca1, nm_cor1, 0, False, nm_litros1, nm_cm1)
 
     print('Cadastre um segundo carro')
     nm_modelo2 = input('Digite o modelo: ')
     nm_marca2 = input('Digite a marca: ')
     nm_cor2 = input('Digite a cor: ')
+    nm_litros2 = float(input('Tamanho do tanque: '))
+    nm_cm2 = float(input('Consumo do tanque: '))
 
-    carro2 = Carro(nm_modelo2, nm_marca2, nm_cor2, 0, motor=False)
+    carro2 = Carro(nm_modelo2, nm_marca2, nm_cor2, 0, False, nm_litros2, nm_cm2)
 
     '''
     Controlando dois carro até atingir 600 Km
     '''
-    while carro1.odometro < 600 and carro2.odometro < 600:
+    while carro1.get_odometro() < 600 and carro2.get_odometro() < 600 and (carro1.get_tanque() > 0 or carro2.get_tanque()> 0):
         try:
             print('Escolha um carro:')
             print(f'Carro 1: {nm_modelo1} {nm_cor1}')
@@ -54,14 +58,11 @@ if __name__ == "__main__":
             print("Erro!")
             print(e)
 
-    carro1.desligar()
-    carro2.desligar()
     print(carro1)
     print(carro2)
-    if carro1.odometro > carro2.odometro:
+    if carro1.get_odometro() > carro2.get_odometro():
         print(f'{nm_modelo1} {nm_cor1} chegou primeiro que o {nm_modelo2} {nm_cor2}')
-    elif carro1.odometro == carro2.odometro:
+    elif carro1.get_odometro() == carro2.get_odometro():
         print(f'{nm_modelo1} {nm_cor1} chegou ao mesmo tempo {nm_modelo2} {nm_cor2}')
     else:
         print(f'{nm_modelo2} {nm_cor2} chegou primeiro que o {nm_modelo1} {nm_cor1}')
-
