@@ -40,18 +40,16 @@ if __name__ == "__main__":
     '''
     Controlando o carro até ele atingir 10000 Km
     '''
-    while carro1.odometro < 600 and carro2.odometro < 600 and (carro1.tanque > 0 or carro2.tanque > 0 ):
+    while carro1.get_odometro() < 600 and carro2.get_odometro() < 600 and (carro1.get_tanque() > 0) or (carro2.get_tanque() > 0):
         try:
             op_carro = 0
             while op_carro not in [1, 2]:
-                op_carro = int(input("Qual carro deseja controlar ? [1,2]:" ))
+                op_carro = int(input("Qual carro deseja controlar ? [1,2]:"))
             if op_carro == 1:
                 controlar_carro(carro1)
             elif op_carro == 2:
                 controlar_carro(carro2)
 
-
         except Exception as e:
-            print("Erro!")
+            print("Erro")
             print(e)
-
