@@ -84,8 +84,8 @@ def atualizar_eleitor(eleitores):
         raise Exception('Titulo inexistente')
 
 def listar_candidatos(candidatos):
-    for o in candidatos.values():
-        print(o)
+    for c in candidatos.values():
+        print(c)
 
 if __name__ == "__main__":
     eleitores = {} #dicionário a chave será o titulo
