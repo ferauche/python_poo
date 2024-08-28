@@ -43,6 +43,7 @@ class Eleitor(Pessoa):
 
 class Candidato(Pessoa):
     __numero : int
+
     def __init__(self, nome, RG, CPF, numero):
         super().__init__(nome, RG, CPF)
         self.__numero = numero
