@@ -40,3 +40,21 @@ class Eleitor(Pessoa):
 
     def get_titulo(self):
         return self.__titulo
+
+class Candidato(Pessoa):
+    __numero : int
+
+    def __init__(self, nome, RG, CPF, numero):
+        super().__init__(nome, RG, CPF)
+        self.__numero = numero
+
+    def __str__(self):
+        info = super().__str__()
+        info += (f'Numero: {self.__numero}\n')
+        return info
+
+    def __repr__(self):
+        return f"Candidato({super().__repr__()}, numero='{self.__numero})'"
+
+    def get_numero(self):
+        return self.__numero
