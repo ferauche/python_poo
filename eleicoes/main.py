@@ -117,7 +117,8 @@ if __name__ == "__main__":
             elif opcao == 4:
                 listar_candidatos(candidatos)
             elif opcao == 5:
-                urna = gerenciar_urna.iniciar_urna(candidatos, eleitores)
+                urna = gerenciar_urna.iniciar_urna(eleitores.values(),
+                                                   candidatos.values())
             elif opcao == 6:
                 gerenciar_urna.votar(urna)
             elif opcao == 7:
