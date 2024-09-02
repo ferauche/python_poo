@@ -28,8 +28,8 @@ def inserir_eleitor(eleitores):
     nome = input("Digite o nome: ")
     RG = input("Digite o RG: ")
     CPF = input("Digite o CPF: ")
-    secao = input("Digite a secao: ")
-    zona = input("Digite a zona: ")
+    secao = int(input("Digite a secao: "))
+    zona = int(input("Digite a zona: "))
 
     eleitor = Eleitor(nome, RG, CPF, titulo, secao, zona)
     eleitores[eleitor.get_titulo()] = eleitor
@@ -46,8 +46,8 @@ def atualizar_eleitor(eleitores):
     if titulo in eleitores:
         eleitor = eleitores[titulo]
         print(eleitor)
-        secao = input("Digite a nova secao: ")
-        zona = input("Digite a nova zona: ")
+        secao = int(input("Digite a nova secao: "))
+        zona = int(input("Digite a nova zona: "))
         eleitor.secao = secao
         eleitor.zona = zona
 
