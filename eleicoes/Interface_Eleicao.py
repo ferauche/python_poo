@@ -11,3 +11,4 @@ class Transparencia(metaclass=ABCMeta):
     @abstractmethod
     def to_txt(self):
         pass
+

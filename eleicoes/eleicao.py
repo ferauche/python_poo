@@ -1,6 +1,7 @@
 import pickle
 from typing import List
 from common import *
+from Interface_Eleicao import Transparencia
 
 class Urna:
     mesario : Pessoa
@@ -46,8 +47,9 @@ class Urna:
             pickle.dump(self.__votos, arquivo)
 
     def __str__(self):
-        info = (f'Urna da seção {self.__secao}, zona {self.__zona}\n'
-                f'Mesario {self.mesario}\n')
+        info =  f'Urna da seção {self.__secao}, zona {self.__zona}\n'
+        info += f'Mesario {self.mesario}\n'
+        return info
 
 
 

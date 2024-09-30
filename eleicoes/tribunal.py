@@ -69,8 +69,8 @@ class Jurisprudencia(Transparencia):
             writer.writerow(['Denunciante', 'Denunciado', 'Denuncia', 'Sentença', 'Juiz'])
 
             for denuncia in self.denuncias:
-                writer.writerow([denuncia.get_denunciante(), denuncia.get_denunciado(),
-                                 denuncia.get_txt_denuncia(). denuncia.get_txt_sentenca(),
+                writer.writerow([denuncia.get_denunciante().get_nome(), denuncia.get_denunciado().get_nome(),
+                                 denuncia.get_txt_denuncia(), denuncia.get_txt_sentenca(),
                                  denuncia.get_juiz().get_nome()])
 
     def to_txt(self):
@@ -87,6 +87,7 @@ if __name__ == "__main__":
     denun = Denuncia(1, c1, c2, "Fake News!")
     denun.julgar(j1, 'O denunciado é obrigado a pagar uma multa ao denunciante!')
     juris1 = Jurisprudencia(2024)
+    juris1.add_denuncia(denun)
     juris1.to_csv()
     juris1.to_txt()
     print(denun)
