@@ -1,4 +1,7 @@
+from Interface_Eleicao import *
+from typing import List
 from common import *
+import csv
 
 class Denuncia:
     __numero : int
@@ -34,6 +37,48 @@ class Denuncia:
             info += f'Assinatura: {self.__juiz.assinatura_eletronica()}'
         return info
 
+    def get_denunciante(self):
+        return self.__denunciante
+
+    def get_denunciado(self):
+        return self.__denunciado
+
+    def get_juiz(self):
+        return self.__juiz
+
+    def get_txt_sentenca(self):
+        return self.__txt_sentenca
+
+    def get_txt_denuncia(self):
+        return self.__txt_denuncia
+
+class Jurisprudencia(Transparencia):
+    ano : int
+    denuncias : List[Denuncia]
+
+    def __init__(self, a:int):
+        self.ano = a
+        self.denuncias = []
+
+    def add_denuncia(self, d: Denuncia):
+        self.denuncias.append(d)
+
+    def to_csv(self):
+        with open(f'juris_{self.ano}.csv', mode='w', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow(['Denunciante', 'Denunciado', 'Denuncia', 'Sentença', 'Juiz'])
+
+            for denuncia in self.denuncias:
+                writer.writerow([denuncia.get_denunciante(), denuncia.get_denunciado(),
+                                 denuncia.get_txt_denuncia(). denuncia.get_txt_sentenca(),
+                                 denuncia.get_juiz().get_nome()])
+
+    def to_txt(self):
+        with open(f'juris_{self.ano}.txt', mode='w') as file:
+            for denuncia in self.denuncias:
+                file.write(denuncia.__str__())
+
+
 if __name__ == "__main__":
     j1 = Juiz("Alex Morales", "12312", 123123, 4456)
     #p1 = Pessoa("Jose", 123123, 123123)
@@ -41,4 +86,7 @@ if __name__ == "__main__":
     c2 = Candidato("xxxxxxx", "333", "444", 2)
     denun = Denuncia(1, c1, c2, "Fake News!")
     denun.julgar(j1, 'O denunciado é obrigado a pagar uma multa ao denunciante!')
+    juris1 = Jurisprudencia(2024)
+    juris1.to_csv()
+    juris1.to_txt()
     print(denun)
